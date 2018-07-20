@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1> Welcome {{session.username}}! </h1>
+  <h4>You can select the pillows you like and the ones you don't, after that, hit submit, or return to dashboard</h4>
+  <hr>
+  <form method="post" action= "{{ url_for('submit_choices') }}">
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th></th>
+      <th></th>
+
+    </tr>
+    <!-- {% set nopes = [] %} -->
+    {% for pic in pictures %}
+      <tr>
+        <td>{{pic.idx}}</td>
+        <td>{{pic.price}}</td>
+        <td><img src = {{pic.img}} width = "350"></td>
+
+        <td>
+            <input type="checkbox" id="like" class="btn btn-success" name = "like"class="form-control" value= {{pic.idx}}>
+            <label for="like">I like it!</label>
+        </td>
+
+
+        <td>
+          <!-- <form action="" method="post"> -->
+            <input type="checkbox" id="nope" class="btn btn-danger"  name = "nope" class="form-control" value={{pic.idx}}>
+            <label for="nope">Nope</label>
+          <!-- </form> -->
+        </td>
+
+        
+      </tr>
+    
+    {% endfor %}
+
+  </table>
+
+  <button type="submit" ><img src = "http://www.clker.com/cliparts/9/3/e/f/14144256491614649893green_submit_button_by_rukiaxichigo152-hi.png" width = "250"></button>
+  
+</form>
+
+{% endblock %}
+
+
+

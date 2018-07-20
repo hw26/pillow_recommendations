@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1> Welcome to {{session.username}}'s Favorite Pillow Collections</h1>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th></th>
+    </tr>
+    {% for pic in pictures %}
+      <tr>
+        <td>{{pic.idx}}</td>
+        <td>{{pic.title}}</td>
+        <td>{{pic.price}}</td>
+        <td><img src = {{pic.img}} width = "350"></td>
+
+        <td>
+          <form action="{{url_for('delete_pillow', id=pic.idx)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

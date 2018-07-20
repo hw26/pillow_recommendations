@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Dashboard <small> Welcome {{session.username}}</small></h1>
+  <a class="btn btn-primary" href="/recommendations"> Play Pillow Recommendation Game</a>
+  <br>
+<br>
+<br>
+<br>
+<br>
+
+  <a class="btn btn-primary" href="/display_favorites"> My Favorite Pillow Collections</a>
+  <hr>
+  
+{% endblock %}
