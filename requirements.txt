@@ -179,7 +179,7 @@ traitlets==4.3.2
 Twisted==18.4.0
 typing==3.6.2
 unicodecsv==0.14.1
-urllib3==1.22
+urllib3==1.26.5
 w3lib==1.19.0
 wait==0.0.3
 waitress==1.1.0
